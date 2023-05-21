@@ -1,0 +1,244 @@
+/* setting font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@font-face {
+    font-family: coding;
+    src:url(fonts/coding/NanumGothicCoding-Regular.ttf);
+}
+@font-face {
+    font-family: aboutme;
+    src:url(fonts/aboutme/HindSiliguri-Regular.ttf);
+}
+
+html, body {
+    /* scroll-behavior: smooth; */
+    height: 100%;
+    margin: 0;
+}
+
+/* for everything */
+* {
+    /* background-color: #20338d; */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    /* font-family: aboutme; */
+}
+
+.modal {
+    /* width: 100%;
+    height: 100vh;
+    background-color: #4255b8;
+    display: flex;
+    align-items: center;
+    justify-content: center; */
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    font-family: coding;
+
+}
+
+form {
+    width: 500px;
+    height: 550px;
+    position: fixed;
+    background-color: #4255b8;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    padding: 30px;
+    font-size: 18px;
+    border-radius: 80px;
+}
+.close-modal {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 5px;
+    transition: all 200ms;
+  }
+  
+.close-modal:hover,
+.close-modal:focus {
+    color: #1c252b;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+.message-icon {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+}
+
+.message-icon i {
+    font-size: 40px;
+}
+
+.message-icon span {
+    font-size: 22px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+.modal-input-field {
+    position: relative;
+    width: 100%;
+    margin-top: 50px;
+    border-bottom: 2px solid #adadad;
+}
+  
+@-moz-document url-prefix() {
+    .first-input-field {
+        height: 50px;
+    }
+}
+
+
+  
+.modal-input-field input{
+    margin: auto;
+    padding-left: 7px;
+    position: absolute;
+    width: 90%;
+    height: 50px;
+    font-size: 18px;
+    background: none;
+    outline: none;
+    border: none;
+}
+.modal-input-field textarea {
+    resize: none;
+    margin: auto;
+    padding-left: 7px;
+    width: 90%;
+    height: 150px;
+    font-size: 16px;
+    background: none;
+    outline: none;
+    border: none;
+}
+.modal-input-field input,
+.modal-input-field textarea {
+    font-family: coding;
+    /* Add any other desired font properties */
+}
+
+.modal-input-field label {
+    position: absolute;
+    left: 7%; 
+    top: 50%;
+    color: #adadad;
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+.modal-input-field label[for="email"] {
+    top: 30%;
+}
+.modal-input-field label[for="message"] {
+    top: 40%;
+}
+@-moz-document url-prefix() {
+    .modal-input-field label[for="message"] {
+        top: 35%;
+    }
+}
+.modal-input-field span::before{
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0px;
+    width: 0%;
+    height: 2px;
+    background: #2691d9;
+    transition: .5s;
+}
+.modal-input-field input:-webkit-autofill {
+
+    -webkit-box-shadow: 0 0 0 1000px #4255b8 inset !important;
+    /* Change 'white' to the desired background color */
+    border: none !important;
+
+} 
+
+.modal-input-field input:focus ~ label,
+.modal-input-field input:valid ~ label {
+    top: -12px;
+    color: #2691d9;
+}
+.modal-input-field input:focus ~ span::before,
+.modal-input-field input:valid ~ span::before {
+    width: 100%;
+}
+
+.modal-input-field textarea:focus ~ label,
+.modal-input-field textarea:valid ~ label{
+    top: -15px;
+    color: #2691d9;
+}
+.modal-input-field textarea:focus ~ span::before,
+.modal-input-field textarea:valid ~ span::before{
+    width: 100%;
+}
+form input, textarea {
+    padding-top: 5px;
+    width: 100%;
+    /* border-top: none;
+    border-left: none;
+    border-right: none; */
+}
+.modal-input-field {
+    padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+.no-border {
+    padding-bottom: 0px;
+
+}
+.modal-input-field:focus .input{
+    margin: 10px;
+}
+.modal-input-field i {
+    position: absolute;
+    left: 0px;
+}
+.bi-envelope {
+    margin-top: 7px;
+}
+@-moz-document url-prefix() {
+    .bi-chat-right-dots {
+        margin-bottom: 15px;
+}
+}
+.send-btn {
+    width: 100px;
+    height: 50px;
+    border: none;
+    background: #000;
+    color: white;
+    font-size: 17px;
+    padding: 7px 0;
+    border-radius: 50px;
+    margin-top: 40px;
+}
+
+.send-btn:hover {
+    cursor: pointer;
+    color: #2691d9;
+    background: #d7d1d1;
+    transition: color 0.5s, background-color 0.5s;
+}
+
+  
+  
