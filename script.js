@@ -12,7 +12,7 @@ $(document).ready(function() {
       return;
     } else if ($(this).attr('href').startsWith('#modal')) {
       return;
-    } else if ($(this).attr('href').startsWith('javascript:void(0);')){
+    } else if ($(this).attr('href').startsWith('#void')){
       return;
     } else {
       event.preventDefault();
