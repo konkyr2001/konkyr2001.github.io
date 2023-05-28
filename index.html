@@ -16,13 +16,19 @@
 </head>
     <header id="top-section">
         <nav>
-            <ul class="nav-links">
+            <ul class="nav-links" id="navigation-links">
+                <li><a name="mygame" href="https://konkyr.itch.io/rocketspace" target="_blank">RocketSpace</a></li>
+                <li><a name="introduction" href="#introduction-section">Welcome</a></li>
                 <li><a name="about" href="#aboutme-section">About</a></li>
-                <li><a name="project" href="#project-section">Project</a></li>
+                <li><a name="project" href="#project-section">Projects</a></li>
                 <li><a name="socials" href="#socials-section">Socials</a></li>
+                <li><a href="#modal" class="contact-button" id="contact-btn">Contact Me</a></li>
             </ul>
+            <a href="javascript:void(0);" class="navigation-bar-icon" onclick="navigationBarClick()">
+                <i class="fa fa-bars"></i>
+            </a>
         </nav>
-        <a href="#modal" class="contact-button" id="contact-btn">Contact Me</a>
+
         <div class="modal" id="email-modal">
             <form id="emailform" action="https://formspree.io/f/xayzzydw" class="email-form" method="post" novalidate>
                 <span class="close-modal">&times;</span>
@@ -65,15 +71,14 @@
                 Java for building PC and Android apps using Android Studio. I'm also skilled in Python, C, C#, HTML, 
                 CSS, Javascript, and PHP. On this website, I'll be sharing more about my projects, so stay tuned!                
                 Thank you for taking the time to visit my website and learn more about me. If you have any questions
-                or want to discuss a project, feel free to reach out to me. <br>
-                I look forward to hearing from you!
+                or want to discuss a project, feel free to reach out to me. Looking forward hearing from you!
             </h2>
             <img class="my-img slide-in" src="images/me.jpg">
         </div>
         
         
         <div class="border-bottom"></div>
-        <div class="scroll-container" id="project-container" id="container1">
+        <div class="scroll-container" id="project-container">
             <div class="container" id="project-section" project1="active">
                 <div class="content">
                     <div class="carousel" data-carousel1>
@@ -196,9 +201,9 @@
                         day off on the right foot and ensure that you wake up both your body and mind.
                     </h5>
                 </div>
-            </div>            
+            </div>       
         </div>
-        <div class="border-bottom"></div>
+        <div class="border-bottom border-bottom2"></div>
         <section class="footer" id="socials-section">
             <div class="social">
                 <a href="https://www.facebook.com/kostas.kyriazopoylos.3/" onmouseover="socialsUp(this,0)" onmouseleave="socialsDown(this,0)" target="_blank"><i class="fab fa-facebook" id="fb"></i></a>
@@ -209,9 +214,9 @@
                                 
             </div>
             <ul class="list">
-                <li><a href="#top-section">Home</a></li>
+                <li><a href="#introduction-section">Home</a></li>
                 <li><a name="about" href="#aboutme-section">About</a></li>
-                <li><a name="project" href="#project-section">Project</a></li>
+                <li><a name="project" href="#project-section">Projects</a></li>
             </ul>
             <center><p class="copyright">
                 Konstantinos Kyriazopoulos &copy Copyright 2023

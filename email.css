@@ -40,7 +40,6 @@ html, body {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     font-family: coding;
 
@@ -241,4 +240,83 @@ form input, textarea {
 }
 
   
-  
+@media screen and (max-width: 700px) {
+    form {
+        width: 70%;
+        height: 470px;
+    }
+    .message-icon {
+        margin-left: 40px;
+        margin-top: 15px;
+    }
+    .modal-input-field input{
+        margin-bottom: 10px;
+    }
+    .modal-input-field i {
+        margin-bottom: 10px;
+    }
+    .modal-input-field label[for="email"] {
+        margin-left: 3px;
+        top: 20%;
+    }
+    .modal-input-field label[for="message"] {
+        margin-left: 3px;
+        top: 38%;
+    }
+    .send-btn {
+        margin-top: 15px;
+    }
+    .modal-input-field input:focus ~ label,
+    .modal-input-field input:valid ~ label {
+        top: -18px;
+        color: #2691d9;
+    }
+    .modal-input-field textarea:focus ~ label,
+    .modal-input-field textarea:valid ~ label{
+        top: -20px;
+        color: #2691d9;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    form {
+        width: 80%;
+        height: 470px;
+    }
+    .message-icon {
+        margin-left: 40px;
+    }
+    .modal-input-field input{
+        margin-bottom: 30px;
+    }
+    .modal-input-field i {
+        margin-bottom: 30px;
+    }
+    .modal-input-field label[for="email"] {
+        margin-left: 0px;
+        top: -2px;
+    }
+    .modal-input-field label[for="message"] {
+        margin-left: 0px;
+        top: 50px;
+    }
+    .send-btn {
+        margin-bottom: 50px;
+    }
+    .modal-input-field input:focus ~ label,
+    .modal-input-field input:valid ~ label {
+        top: -25px;
+        color: #2691d9;
+    }
+    .modal-input-field textarea:focus ~ label,
+    .modal-input-field textarea:valid ~ label{
+        top: -22px;
+        color: #2691d9;
+    }
+}
+@media screen and (max-width: 550px) {
+    form {
+        width: 90%;
+        height: 470px;
+    }
+}

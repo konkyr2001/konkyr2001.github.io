@@ -12,6 +12,8 @@ $(document).ready(function() {
       return;
     } else if ($(this).attr('href').startsWith('#modal')) {
       return;
+    } else if ($(this).attr('href').startsWith('javascript:void(0);')){
+      return;
     } else {
       event.preventDefault();
       var offsetPercent = 0.1; // set the offset percentage
@@ -22,6 +24,40 @@ $(document).ready(function() {
     }
   });
 });
+
+function navigationBarClick() {
+  var x = document.getElementById("navigation-links");
+  var topBackground = document.getElementById("top-section");
+  if (x.className === "nav-links") { // 1ο κλικ στο responsive κουμπι, εμφανιση μενου
+    x.className += " responsive";
+    document.body.style.overflow = "hidden";
+  } else { // 2ο κλικ στο responsive κουμπι, αποκρυψη
+    x.className = "nav-links";
+    document.body.style.overflow = "auto";
+  }
+}
+
+var navigation = document.getElementById("navigation-links");
+navigation.addEventListener("click", function(event) {
+  navigation.className = "nav-links"
+  document.body.style.overflow = "auto";
+});
+  
+
+
+function disableNavigationBar() {
+  var x = document.getElementById("navigation-links");
+  if (x.className === "nav-links responsive") {
+    x.className = "nav-links";
+    document.body.style.overflow = "auto";
+
+  }
+}
+var isGreaterThan800 = window.innerWidth;
+if (isGreaterThan800 > 800)
+  disableNavigationBar();
+
+
 // Make everything visible with a transition
 const elements = document.querySelectorAll('.fade-in, .slide-in');
 
@@ -34,14 +70,27 @@ function fadeInAndSlideIn(entries, observer) {
   });
 }
 
+let rootMargin = '10px'; // Default rootMargin value
+let threshold = 0.65; // Default threshold value
+
+if (window.innerWidth > 800) {
+  threshold = 0.65; // Adjusted threshold value for the fade-in animation
+} else if (window.innerWidth > 550) {
+  threshold = 0.75; // Adjusted threshold value for the fade-in animation
+} else if (window.innerWidth > 350) {
+  threshold = 0.9; // Adjusted threshold value for the fade-in animation
+}
+
 const observer = new IntersectionObserver(fadeInAndSlideIn, {
-  rootMargin: '5px',
-  threshold: 0.5
+  rootMargin: rootMargin,
+  threshold: threshold
 });
 
 elements.forEach(element => {
   observer.observe(element);
 });
+
+
 
 // Check visibility of containers and trigger animations on page load
 function checkVisibility() {
@@ -49,7 +98,7 @@ function checkVisibility() {
     const containerTop = container.getBoundingClientRect().top;
     const containerBottom = container.getBoundingClientRect().bottom;
     const windowHeight = window.innerHeight;
-    if (containerTop < windowHeight - 100 && containerBottom >= 0) {
+    if (containerTop < windowHeight - 350 && containerBottom >= 0) {
       container.style.opacity = 1;
       observer.observe(container); // Trigger animation immediately on page load
     }
@@ -102,10 +151,24 @@ if (isFirefox) {
     if (direction === 1) {
       if (activeProject < 3) {
         activeProject++;
+      } else if (activeProject === 3) { // scroll down
+        window.scrollBy({
+          top: 200,
+          left: 0,
+          behavior: 'smooth'
+        });
+        return;
       }
     } else {
       if (activeProject > 1) {
         activeProject--;
+      } else if (activeProject === 1) {
+        window.scrollBy({
+          top: -200,
+          left: 0,
+          behavior: 'smooth'
+        });
+        return;
       }
     }
 
@@ -163,7 +226,7 @@ if (isFirefox) {
     const containerWidth = containerElements[0].offsetWidth;
     const scrollPosition = scrollContainer.scrollLeft;
     const delta = event.deltaY;
-    
+
     if (delta === -0 || delta === 0)
       return;
     // If scrolling down, and activeProject is less than 3
