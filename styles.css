@@ -131,9 +131,9 @@
         left: 0;
         height: 100%;
         width: 100%;
-        /* background-color: #32418c; */
+        background-color: #32418c;
         background: hsl(0 0% 100% /0.1);
-        backdrop-filter: blur(1rem);
+        backdrop-filter: blur(16px);
         z-index: 3;
     }
     .responsive li {
@@ -339,7 +339,7 @@
     
 @media screen and (max-width: 1000px) {
     .me-text {
-        font-size: 1.8vw;
+        font-size: 100%;
     }
     .my-img {
         width: 180px;
@@ -360,7 +360,7 @@
     .me-text {
         width: 75%;
         height: 50%;
-        font-size: 2.3vw;
+        font-size: 90%;
         margin: 0px;
         margin-top: 50px;
         margin-right: 40px;
@@ -368,7 +368,7 @@
         margin-bottom: 0px;
     }
     .my-img {
-        width: 165px;
+        width: 25%;
         padding-bottom: 20px;
 
     }
@@ -384,11 +384,11 @@
     .me-text {
         margin: 10px;
         width: 85%;
-        font-size: 2.5vw;
+        font-size: 75%;
     }
     .my-img {
-        width: 135px;
-        margin-bottom: 5%;
+        width: 25%;
+        margin-bottom: 10%;
     }
     .slide-in {
         transform: translateX(50%);
@@ -402,7 +402,11 @@
     .me-text {
         margin: 0px;
         width: 85%;
-        font-size: 3vw;
+        font-size: 70%;
+    }
+    .my-img {
+        width: 25%;
+        margin-bottom: 10%;
     }
 }
  /* ------------------------------- */
@@ -588,7 +592,7 @@
         margin-top: 50px;
     }
     .content {
-        height: 30rem;
+        height: 32.5rem;
         width: 30rem;
     }
     .carousel {
@@ -619,11 +623,12 @@
 }
 @media screen and (max-width: 800px) {
     .scroll-container {
+        overflow-x: auto;
         height: 40rem;
     }
     .content {
         padding: 3px 17px 0px 17px;
-        height: 31rem;
+        height: 32.5rem;
         width: 27rem;
     }
     .carousel {
@@ -675,6 +680,7 @@
     }
     .content {
         display: block;
+        height: 33rem;
     }
 }
 @media screen and (max-width: 550px) {
@@ -683,7 +689,7 @@
     }
     .content {
         width: 24rem;
-        height: 34rem;
+        height: 34.5rem;
     }
     .carousel-button {
         font-size: 1.7rem;
@@ -721,7 +727,7 @@
 @media screen and (max-width: 420px) {
     .content {
         width: 22rem;
-        height: 35.5rem;
+        height: 36rem;
     }
     .scroll-container .container:nth-child(1) .slide > img {
         margin-right: 80px;

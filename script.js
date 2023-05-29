@@ -8,6 +8,8 @@ function check() {
 // does a smooth scrolling whenever a link is clicked
 $(document).ready(function() {
   $("a").click(function(event) {
+    if ($(this).attr('href') === undefined) // most likely modal or navigation
+      return;
     if ($(this).attr('href').startsWith('https')) {
       return;
     } else if ($(this).attr('href').startsWith('#modal')) {
