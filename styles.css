@@ -131,11 +131,13 @@
         left: 0;
         height: 100%;
         width: 100%;
-        background-color: #32418c;
+        background: rgba(#32418c, .5);
+        backdrop-filter: blur(8px);
+        /* background-color: #32418c;
         background: hsl(0 0% 100% /0.1);
-        backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px); */
         z-index: 3;
-    }
+    } 
     .responsive li {
         position: relative;
         top: 25%;
@@ -355,7 +357,9 @@
 }
 @media screen and (max-width: 800px) {
     .about-me {
-        height: 40rem;
+        /* height: 40rem; */
+        height: auto;
+        min-height: 75%;
     }
     .me-text {
         width: 75%;
@@ -379,7 +383,9 @@
 
 @media screen and (max-width: 550px) {
     .about-me {
-        height: 32rem;
+        /* height: 32rem; */
+        height: auto;
+        min-height: 70%;
     }
     .me-text {
         margin: 10px;
@@ -388,7 +394,8 @@
     }
     .my-img {
         width: 25%;
-        margin-bottom: 10%;
+        margin-top: 8%;
+        margin-bottom: 0%;
     }
     .slide-in {
         transform: translateX(50%);
@@ -398,6 +405,8 @@
     .about-me {
         margin: 0px;
         width: 100%;
+        height: auto;
+        min-height: 60%;
     }
     .me-text {
         margin: 0px;
@@ -405,7 +414,7 @@
         font-size: 70%;
     }
     .my-img {
-        width: 25%;
+        width: 30%;
         margin-bottom: 10%;
     }
 }
@@ -577,7 +586,7 @@
   }
 @media screen and (max-width: 1300px) {
     .scroll-container {
-        overflow-x: auto;
+        overflow-x: scroll;
     }
     .border-bottom2 {
         margin-top: 50px;
@@ -585,15 +594,19 @@
 }
 @media screen and (max-width: 900px) {
     .scroll-container {
-        overflow-x: auto;
+        overflow-x: scroll;
         height: 40rem;
     }
     .border-bottom2 {
         margin-top: 50px;
     }
     .content {
-        height: 32.5rem;
+        /* height: 32.5rem; */
         width: 30rem;
+        /* display: block;
+        overflow: auto; */
+        height: auto;
+        min-height: 100% !important;
     }
     .carousel {
         margin-top: 10px;
@@ -623,13 +636,17 @@
 }
 @media screen and (max-width: 800px) {
     .scroll-container {
-        overflow-x: auto;
+        overflow-x: scroll;
         height: 40rem;
     }
     .content {
-        padding: 3px 17px 0px 17px;
-        height: 32.5rem;
-        width: 27rem;
+        /* padding: 3px 17px 0px 17px; */
+        /* height: 32.5rem; */
+        width: 28rem;
+        /* display: block;
+        overflow: auto; */
+        height: auto;
+        min-height: 100% !important;
     }
     .carousel {
         margin-top: 10px;
@@ -651,8 +668,8 @@
     .carousel-button {
         font-size: 2rem;
     }
-     .slide {
-        padding-right: 18px;
+     .container:nth-child(1) .slide {
+        padding-right: 5px;
      }
      .container:nth-child(2) .slide {
         padding-right: 5px;
@@ -676,11 +693,14 @@
     }
     .container {
         flex: 0 0 0%;
-        height: 40rem;
+        /* height: 40rem; */
     }
     .content {
-        display: block;
         height: 33rem;
+        height: auto;
+        min-height: 100% !important;
+        /* display: block;
+        overflow: auto; */
     }
 }
 @media screen and (max-width: 550px) {
@@ -689,7 +709,11 @@
     }
     .content {
         width: 24rem;
-        height: 34.5rem;
+        /* height: 34.5rem; */
+        /* display: block;
+        overflow: auto; */
+        height: auto;
+        min-height: 100% !important;
     }
     .carousel-button {
         font-size: 1.7rem;
@@ -718,7 +742,7 @@
         right: -10;
     }
     .scroll-container .container:nth-child(1) .slide > img {
-        margin-right: 50px;
+        margin-right: 62px;
     }
     .scroll-container .container:nth-child(2) .slide > img {
         margin-right: 13px;
@@ -727,12 +751,17 @@
 @media screen and (max-width: 420px) {
     .content {
         width: 22rem;
-        height: 36rem;
+        height: auto;
+        min-height: 100% !important;
+        /* height: 36rem; */
+        /* display: block;
+        overflow: auto; */
     }
     .scroll-container .container:nth-child(1) .slide > img {
-        margin-right: 80px;
+        margin-right: 93px;
         margin-top: 10px;
-        height: 18rem;
+        height: 17.5rem;
+        width: 16rem;
     }
     .scroll-container .container:nth-child(1) .prev {
         left: -9px;
@@ -743,9 +772,9 @@
     .scroll-container .container:nth-child(1) .input-slides {
         bottom: -5px;
     }
-    .scroll-container .container:nth-child(2) .content {
+    /* .scroll-container .container:nth-child(2) .content {
         height: 34rem;
-    }
+    } */
     .scroll-container .container:nth-child(2) .slide > img {
         margin-right: 45px;
         margin-top: 7px;
@@ -757,20 +786,21 @@
     .scroll-container .container:nth-child(3) .carousel{
         height: 21rem;
     }
-    .scroll-container .container:nth-child(3) .content {
+    /* .scroll-container .container:nth-child(3) .content {
         height: 36.5rem;
-    }
+    } */
     .scroll-container .container:nth-child(3) .slide > img {
         margin-top: 10px;
+        margin-left: 5px;
         height: 19rem;
     }
     .scroll-container .container:nth-child(3) .input-slides {
         bottom: -10px;
     }
-    .scroll-container .content:nth-child(3) {
+    /* .scroll-container .content:nth-child(3) {
         width: 22rem;
         height: 35rem;
-    }
+    } */
 }
     /* FOOTER */
  
