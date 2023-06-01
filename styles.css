@@ -274,7 +274,34 @@
 
     }
 }
+@media screen and (max-width: 800px) {
+    .hello {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 280px;
+        height: 30px;
+        font-size: 22px;
+    }
+    .welcome {
+        font-size: 13px;
+    }
+    .hello::before {
+        top: -4px;
+        bottom: 1px;
+        animation:
+        typewritter 3s steps(25) 1s forwards;
 
+    }
+    .hello::after {
+        top: -2px;
+        bottom: 5px;
+        width: 5px;
+        animation:
+        typewritter 3s steps(25) 1s forwards,
+        blinkmouse 750ms steps(25) infinite;
+
+    }
+}
  /* HELLO SECTION FINISH */
  
  /* ABOUT ME SECTION START */
@@ -389,7 +416,7 @@
         min-height: 70%;
     }
     .me-text {
-        margin: 10px;
+        margin: 30px;
         width: 85%;
         font-size: 75%;
     }
