@@ -256,6 +256,7 @@
     }
     .welcome {
         font-size: 16px;
+        margin-top: 40px;
     }
     .hello::before {
         top: -4px;
@@ -274,7 +275,7 @@
 
     }
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 400px) {
     .hello {
         left: 50%;
         transform: translateX(-50%);
@@ -283,7 +284,8 @@
         font-size: 22px;
     }
     .welcome {
-        font-size: 13px;
+        font-size: 14px;
+        margin-top: 30px;
     }
     .hello::before {
         top: -4px;
