@@ -310,17 +310,17 @@
     .hello {
         left: 50%;
         transform: translateX(-50%);
-        width: 225px;
+        width: 215px;
         height: 26px;
-        font-size: 18px;
+        font-size: 17px;
     }
     .welcome {
-        font-size: 12px;
+        font-size: 13px;
         margin-top: 20px;
     }
     .hello::before {
-        top: -1px;
-        bottom: 1px;
+        top: -3px;
+        bottom: 0px;
         animation:
         typewritter 3s steps(25) 1s forwards;
 
