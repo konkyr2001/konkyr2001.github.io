@@ -306,6 +306,35 @@
 
     }
 }
+@media screen and (max-width: 370px) {
+    .hello {
+        left: 50%;
+        transform: translateX(-50%);
+        width: 225px;
+        height: 26px;
+        font-size: 18px;
+    }
+    .welcome {
+        font-size: 12px;
+        margin-top: 20px;
+    }
+    .hello::before {
+        top: -1px;
+        bottom: 1px;
+        animation:
+        typewritter 3s steps(25) 1s forwards;
+
+    }
+    .hello::after {
+        top: -1px;
+        bottom: 5px;
+        width: 4px;
+        animation:
+        typewritter 3s steps(25) 1s forwards,
+        blinkmouse 750ms steps(25) infinite;
+
+    }
+}
  /* HELLO SECTION FINISH */
  
  /* ABOUT ME SECTION START */
