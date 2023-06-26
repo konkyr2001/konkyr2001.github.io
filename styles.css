@@ -312,7 +312,7 @@
         transform: translateX(-50%);
         width: 215px;
         height: 26px;
-        font-size: 17px;
+        font-size: 5px;
     }
     .welcome {
         font-size: 13px;
@@ -341,7 +341,7 @@
         transform: translateX(-50%);
         width: 189px;
         height: 26px;
-        font-size: 15px;
+        font-size: 10px;
     }
     .welcome {
         font-size: 12px;
