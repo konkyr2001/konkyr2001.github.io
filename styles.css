@@ -298,7 +298,7 @@
     }
     .hello::after {
         top: -2px;
-        bottom: 5px;
+        bottom: 9px;
         width: 5px;
         animation:
         typewritter 3s steps(25) 1s forwards,
@@ -327,7 +327,7 @@
     }
     .hello::after {
         top: -1px;
-        bottom: 5px;
+        bottom: 7px;
         width: 4px;
         animation:
         typewritter 3s steps(25) 1s forwards,
@@ -356,7 +356,7 @@
     }
     .hello::after {
         top: -3px;
-        bottom: 7px;
+        bottom: 9px;
         width: 3px;
         animation:
         typewritter 3s steps(25) 1s forwards,
