@@ -13,6 +13,7 @@ html, body {
     /* scroll-behavior: smooth; */
     height: 100%;
     margin: 0;
+    overflow-x: hidden;
 }
 
 /* for everything */
@@ -45,7 +46,7 @@ html, body {
 
 }
 
-form {
+#emailform {
     width: 500px;
     height: 550px;
     position: fixed;
@@ -129,6 +130,7 @@ form {
 .modal-input-field input,
 .modal-input-field textarea {
     font-family: coding;
+    font-weight: 800;
     /* Add any other desired font properties */
 }
 
@@ -241,82 +243,101 @@ form input, textarea {
 
   
 @media screen and (max-width: 700px) {
-    form {
+    #email-modal > form {
         width: 70%;
-        height: 470px;
+        height: 500px;
     }
-    .message-icon {
-        margin-left: 40px;
+    #emailform > .message-icon {
+        margin-left: 30px;
         margin-top: 15px;
     }
-    .modal-input-field input{
+    #emailform > .modal-input-field input{
         margin-bottom: 10px;
     }
-    .modal-input-field i {
+    #emailform > .modal-input-field i {
         margin-bottom: 10px;
     }
-    .modal-input-field label[for="email"] {
+    #emailform > .modal-input-field label[for="email"] {
         margin-left: 3px;
         top: 20%;
     }
-    .modal-input-field label[for="message"] {
+    #emailform > .modal-input-field label[for="message"] {
         margin-left: 3px;
         top: 38%;
     }
-    .send-btn {
+    #emailform > .send-btn {
         margin-top: 15px;
     }
-    .modal-input-field input:focus ~ label,
-    .modal-input-field input:valid ~ label {
+    #emailform > .modal-input-field input:focus ~ label,
+    #emailform > .modal-input-field input:valid ~ label {
         top: -18px;
         color: #2691d9;
     }
-    .modal-input-field textarea:focus ~ label,
-    .modal-input-field textarea:valid ~ label{
+    #emailform > .modal-input-field textarea:focus ~ label,
+    #emailform > .modal-input-field textarea:valid ~ label{
         top: -20px;
         color: #2691d9;
     }
 }
 
 @media screen and (max-width: 550px) {
-    form {
-        width: 80%;
-        height: 470px;
+    #email-modal > form {
+        width: 90%;
+        height: 500px;
     }
-    .message-icon {
-        margin-left: 40px;
+    #emailform > .message-icon {
+        margin-left: 30px;
     }
-    .modal-input-field input{
+    #emailform > .modal-input-field input{
+        margin-bottom: 30px;
+        padding-left: 12px;
+    }
+    #emailform > .modal-input-field textarea{
+        padding-left: 10px;
+    }
+    #emailform > .modal-input-field i {
         margin-bottom: 30px;
     }
-    .modal-input-field i {
-        margin-bottom: 30px;
-    }
-    .modal-input-field label[for="email"] {
-        margin-left: 0px;
+    #emailform > .modal-input-field label[for="email"] {
+        margin-left: 5px;
         top: -2px;
     }
-    .modal-input-field label[for="message"] {
-        margin-left: 0px;
+    #emailform > .modal-input-field label[for="message"] {
+        margin-left: 5px;
         top: 50px;
     }
-    .send-btn {
+    #emailform > .send-btn {
         margin-bottom: 50px;
     }
-    .modal-input-field input:focus ~ label,
-    .modal-input-field input:valid ~ label {
+    #emailform > .modal-input-field input:focus ~ label,
+    #emailform > .modal-input-field input:valid ~ label {
         top: -25px;
         color: #2691d9;
     }
-    .modal-input-field textarea:focus ~ label,
-    .modal-input-field textarea:valid ~ label{
+    #emailform > .modal-input-field textarea:focus ~ label,
+    #emailform > .modal-input-field textarea:valid ~ label{
         top: -22px;
         color: #2691d9;
     }
 }
-@media screen and (max-width: 550px) {
-    form {
-        width: 90%;
-        height: 470px;
+
+@media screen and (max-width: 400px) {
+    #emailform > .modal-input-field input{
+        margin-bottom: 30px;
+        padding-left: 13px;
+    }
+    #emailform > .modal-input-field textarea{
+        padding-left: 13px;
+    }
+    #emailform > .modal-input-field i {
+        margin-bottom: 30px;
+    }
+    #emailform > .modal-input-field label[for="email"] {
+        margin-left: 9px;
+        top: -2px;
+    }
+    #emailform > .modal-input-field label[for="message"] {
+        margin-left: 9px;
+        
     }
 }

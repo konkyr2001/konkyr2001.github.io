@@ -7,6 +7,8 @@ function check() {
 
 // does a smooth scrolling whenever a link is clicked
 $(document).ready(function() {
+  document.getElementById("html-css").click(); // project section
+
   $("a").click(function(event) {
     if ($(this).attr('href') === undefined) // most likely modal or navigation
       return;
@@ -45,6 +47,44 @@ navigation.addEventListener("click", function(event) {
   document.body.style.overflow = "auto";
 });
   
+// event listener for #my-img on click
+function createAnimationsListener() {
+  console.log("mpike createanimation")
+  const myimg = document.getElementById("my-img");
+  myimg.classList.toggle("animate");
+  let mytext = document.getElementById("my-text");
+  console.log(window.getComputedStyle(mytext).opacity)
+  if (window.getComputedStyle(mytext).opacity == "0") {
+    mytext.style.visibility = "visible";
+    mytext.style.opacity = "1";
+  } else {
+    mytext.style.visibility = "hidden";
+    mytext.style.opacity = "0";
+  }
+  mytext.classList.toggle("slide-in")
+  mytext.classList.toggle("fade-in")
+  mytext.classList.toggle("animate")
+}
+
+// function that removes event listener so when the width 
+// of the screen < 750px the text displays by itself with 
+checkWidth();
+function checkWidth() {
+  const myimg = document.getElementById("my-img");
+  const mytext = document.getElementById("my-text");
+  if (window.innerWidth <= 750) {
+    myimg.classList.add("animate");
+    myimg.style.cursor ="default";
+    mytext.classList.add("slide-in");
+    mytext.classList.add("animate");
+    mytext.style.opacity = "1";
+    mytext.style.visibility = "visible";
+    myimg.removeEventListener("click", createAnimationsListener);
+  } else {
+    myimg.style.cursor ="pointer";
+    myimg.addEventListener("click", createAnimationsListener);
+  }
+}
 
 
 function disableNavigationBar() {
@@ -107,6 +147,76 @@ function checkVisibility() {
   }
 }
 
+//change projects according to buttons and dropdown inputs
+
+const htmlButton = document.getElementById("html-css");
+const reactButton = document.getElementById("react");
+const javaButton = document.getElementById("java");
+const wordpressButton = document.getElementById("wordpress");
+const unityButton = document.getElementById("unity");
+
+htmlButton.addEventListener("click", () => displayDiv("html-css"));
+reactButton.addEventListener("click", () => displayDiv("react"));
+javaButton.addEventListener("click", () => displayDiv("java"));
+wordpressButton.addEventListener("click", () => displayDiv("wordpress"));
+unityButton.addEventListener("click", () => displayDiv("unity"));
+
+
+function displayDiv(divId) {
+
+  document.getElementById("html-css").classList.remove("project-active");
+  document.getElementById("react").classList.remove("project-active");
+  document.getElementById("java").classList.remove("project-active");
+  document.getElementById("wordpress").classList.remove("project-active");
+  document.getElementById("unity").classList.remove("project-active");
+
+  document.getElementsByClassName("html-css-projects")[0].style.display = "none";
+  document.getElementsByClassName("react-projects")[0].style.display = "none";
+  document.getElementsByClassName("java-projects")[0].style.display = "none";
+  document.getElementsByClassName("unity-projects")[0].style.display = "none";
+  document.getElementsByClassName("wordpress-projects")[0].style.display = "none";
+  
+  if (divId == "html-css") {
+  document.getElementById(divId).classList.add("project-active");
+  document.getElementsByClassName("html-css-projects")[0].style.display = "block";
+  } else if (divId == "react") {
+  document.getElementById(divId).classList.add("project-active");
+  document.getElementsByClassName("react-projects")[0].style.display = "block";
+  } else if (divId == "java") {
+  document.getElementById(divId).classList.add("project-active");
+  document.getElementsByClassName("java-projects")[0].style.display = "flex";
+  } else if (divId == "unity") {
+  document.getElementById(divId).classList.add("project-active");
+  document.getElementsByClassName("unity-projects")[0].style.display = "block";
+  } else if (divId == "wordpress") {
+  document.getElementById(divId).classList.add("project-active");
+  document.getElementsByClassName("wordpress-projects")[0].style.display = "block";
+  }
+}
+
+// const selectButton = document.getElementById("select-button");
+// selectButton.addEventListener("change", function() {
+//   displayDiv(this.value);
+// })
+let selectedProject = document.getElementById("value");
+const dropdown = document.getElementById("dropdown-menu");
+selectedProject.addEventListener("click", function() {
+  dropdown.classList.toggle("show-dropdown-menu");
+});
+dropdown.addEventListener("click", function(event) {
+  selectedProject.innerHTML = event.target.innerHTML + "<i class='fa-solid fa-angle-down'></i>";
+  selectedProject.className = event.target.className;
+  selectedProject.value = event.target.value;
+  displayDiv(selectedProject.value);
+});
+
+// close dropdown if clicking outisde
+document.addEventListener("click", function(event) { 
+  if (!selectedProject.contains(event.target) && !dropdown.contains(event.target)) {
+    dropdown.classList.remove("show-dropdown-menu");
+  }
+});
+
 const containers = document.querySelectorAll('.container');
 window.addEventListener('DOMContentLoaded', checkVisibility);
 window.addEventListener('scroll', checkVisibility);
@@ -115,206 +225,6 @@ window.addEventListener('scroll', checkVisibility);
 
 
 
-
-// Get all container elements and the scrolling container
-const containerElements = document.querySelectorAll('.container');
-const scrollContainer = document.getElementById('project-container');
-
-// Set initial active project to 1 and isAnimating to false
-let activeProject = 1;
-let isAnimating = false;
-
-// Check if the browser is Firefox
-const isFirefox = navigator.userAgent.indexOf('Firefox') !== -1;
-
-// Use different scrolling behavior based on the browser
-if (isFirefox) {
-  // Store the scroll position
-  let scrollPosition = 0;
-
-  // Add event listener for scrolling using the mouse wheel
-  scrollContainer.addEventListener('wheel', (event) => {
-    event.preventDefault();
-
-    // Return early if animation is currently in progress
-    if (isAnimating) {
-      return;
-    }
-
-    // Get the width of a container element and the container width
-    const containerWidth = containerElements[0].offsetWidth;
-    const containerScrollWidth = scrollContainer.scrollWidth;
-
-    // Get the direction of the scroll
-    const delta = event.deltaY || event.detail;
-    const direction = delta > 0 ? 1 : -1;
-
-    // Update the active project based on the scroll direction
-    if (direction === 1) {
-      if (activeProject < 3) {
-        activeProject++;
-      } else if (activeProject === 3) { // scroll down
-        window.scrollBy({
-          top: 200,
-          left: 0,
-          behavior: 'smooth'
-        });
-        return;
-      }
-    } else {
-      if (activeProject > 1) {
-        activeProject--;
-      } else if (activeProject === 1) {
-        window.scrollBy({
-          top: -200,
-          left: 0,
-          behavior: 'smooth'
-        });
-        return;
-      }
-    }
-
-    // Calculate the new scroll position based on the active project and container width
-    scrollPosition = (activeProject - 1) * containerWidth;
-    scrollPosition = Math.min(scrollPosition, containerScrollWidth - scrollContainer.offsetWidth);
-
-    // Scroll the container to the new position using a smooth animation
-    isAnimating = true;
-    smoothScrollTo(scrollContainer, scrollPosition, 600, () => {
-      isAnimating = false;
-    });
-
-    // Log the active project for debugging purposes
-  });
-
-  // Helper function for smooth scrolling to a target scroll position
-  function smoothScrollTo(element, targetScrollPosition, duration, callback) {
-    const start = element.scrollLeft;
-    const change = targetScrollPosition - start;
-    const increment = 20;
-    let currentTime = 0;
-
-    const animateScroll = function() {
-      currentTime += increment;
-      const val = easeInOutQuad(currentTime, start, change, duration);
-      element.scrollLeft = val;
-      if (currentTime < duration) {
-        setTimeout(animateScroll, increment);
-      } else {
-        callback();
-      }
-    };
-
-    animateScroll();
-  }
-
-  // Easing function for smooth scrolling
-  function easeInOutQuad(t, b, c, d) {
-    t /= d / 2;
-    if (t < 1) return c / 2 * t * t + b;
-    t--;
-    return -c / 2 * (t * (t - 2) - 1) + b;
-  }
-} else {
-  // Add event listener for scrolling using the mouse wheel
-  scrollContainer.addEventListener('wheel', (event) => {
-    event.preventDefault();
-
-    // Return early if animation is currently in progress
-    if (isAnimating) {
-      return;
-    }
-    // Get the width of a container element, the current scroll position, and the direction of the scroll
-    const containerWidth = containerElements[0].offsetWidth;
-    const scrollPosition = scrollContainer.scrollLeft;
-    const delta = event.deltaY;
-
-    if (delta === -0 || delta === 0)
-      return;
-    // If scrolling down, and activeProject is less than 3
-    if (delta > 0) {
-      if (activeProject < 3) {
-        // Increment activeProject and set isAnimating to true
-        activeProject++;
-        isAnimating = true;
-        
-        // Scroll the container to the next project using a smooth animation
-        const targetScrollPosition = scrollPosition + containerWidth;
-        scrollContainer.scrollTo({
-          left: targetScrollPosition,
-          behavior: 'smooth'
-        });
-        
-        // Set isAnimating back to false after 600ms to allow for next animation
-        setTimeout(() => {
-          isAnimating = false;
-        }, 600);
-      } else {
-        // If activeProject is already 3, scroll down the page
-        window.scrollBy({
-          top: 200,
-          left: 0,
-          behavior: 'smooth'
-        });
-      }
-    } else { // If scrolling up
-      if (activeProject > 1) {
-        // Decrement activeProject and set isAnimating to true
-        activeProject--;
-        isAnimating = true;
-        
-        // Scroll the container to the previous project using a smooth animation
-        const targetScrollPosition = scrollPosition - containerWidth;
-        scrollContainer.scrollTo({
-          left: targetScrollPosition,
-          behavior: 'smooth'
-        });
-        
-        // Set isAnimating back to false after 600ms to allow for next animation
-        setTimeout(() => {
-          isAnimating = false;
-        }, 600);
-      } else {
-        // If activeProject is already 1, scroll up the page
-        window.scrollBy({
-          top: -200,
-          left: 0,
-          behavior: 'smooth'
-        });
-      }
-    }
-
-  });
-}
-
-
-
-// Add event listener for scrolling of the container
-scrollContainer.addEventListener('scroll', () => {
-  // Return early if animation is currently in progress
-  if (isAnimating) {
-    return;
-  }
-  
-  // Get the width of a container element and the current scroll position
-  const containerWidth = containerElements[0].offsetWidth;
-  const scrollPosition = scrollContainer.scrollLeft;
-
-  // Determine which project is currently active based on scroll position
-  if (scrollPosition < containerWidth / 2) {
-    if (activeProject !== 1) {
-      activeProject = 1;
-    }
-  } else if (scrollPosition < containerWidth * 1.5) {
-    if (activeProject !== 2) {
-      activeProject = 2;
-    }
-  } else {
-    if (activeProject !== 3) {
-      activeProject = 3;
-    }
-  }
-});
 
 
 
@@ -340,7 +250,9 @@ buttons.forEach(button => {
     let offset
     if (button.dataset.carouselButton === "next1" ||
     button.dataset.carouselButton === "next2" ||
-    button.dataset.carouselButton === "next3")
+    button.dataset.carouselButton === "next3" ||
+    button.dataset.carouselButton === "next4" ||
+    button.dataset.carouselButton === "next5")
       offset = 1
     else
       offset = -1
@@ -350,23 +262,34 @@ buttons.forEach(button => {
     if (button.dataset.carouselButton === "next1" || button.dataset.carouselButton === "prev1") {
       // the closest object with the tag "data-carousel"
       // from the parent select the son with the tag "data-slides"
-      slides = button.closest("[data-carousel1]").querySelector("[data-slides1]")
+      slides = document.querySelector("[data-slides1]")
       project = 1
     }
     else if (button.dataset.carouselButton === "next2" || button.dataset.carouselButton === "prev2") {
-      slides = button.closest("[data-carousel2]").querySelector("[data-slides2]")
+      slides = slides = document.querySelector("[data-slides2]")
+
       project = 2
     }
     else if (button.dataset.carouselButton === "next3" || button.dataset.carouselButton === "prev3") {
-      slides = button.closest("[data-carousel3]").querySelector("[data-slides3]")
+      slides = slides = document.querySelector("[data-slides3]")
+
       project = 3
+    }
+    else if (button.dataset.carouselButton === "next4" || button.dataset.carouselButton === "prev4") {
+      slides = document.querySelector("[data-slides4]")
+
+      project = 4
+    }
+    else if (button.dataset.carouselButton === "next5" || button.dataset.carouselButton === "prev5") {
+      slides = document.querySelector("[data-slides5]")
+
+      project = 5
     }
     // from the parent, select the son with the tag "data-active"
     const activeSlide = slides.querySelector("[data-active]")
-
     // newIndex should be applied to the input-radio-buttons too
     let newIndex = [...slides.children].indexOf(activeSlide) + offset
-    // if its the first picture and it goes to the previous one
+// if its the first picture and it goes to the previous one
     // it should go to the last image (where index = length - 1)
     if (newIndex < 0)
       newIndex = slides.children.length - 1
@@ -388,8 +311,13 @@ buttons.forEach(button => {
       radioButton= document.getElementsByName("input2")
     } else if (project === 3) {
       radioButton= document.getElementsByName("input3")
+    } else if (project === 4) {
+      radioButton= document.getElementsByName("input4")
+    } else if (project === 5) {
+      radioButton= document.getElementsByName("input5")
     }
     // after we get the element we make it checked
+    console.log(newIndex)
     radioButton[newIndex].checked = true
   })
 });

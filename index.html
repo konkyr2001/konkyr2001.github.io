@@ -18,10 +18,9 @@
     <header id="top-section">
         <nav>
             <ul class="nav-links" id="navigation-links">
-                <li><a name="mygame" href="https://konkyr.itch.io/rocketspace" target="_blank">RocketSpace</a></li>
                 <li><a name="introduction" href="#introduction-section">Welcome</a></li>
-                <li><a name="about" href="#aboutme-section">About</a></li>
                 <li><a name="project" href="#project-section">Projects</a></li>
+                <li><a name="about" href="#info-section">About</a></li>
                 <li><a name="socials" href="#socials-section">Socials</a></li>
                 <li><a class="contact-button" id="contact-btn">Contact Me</a></li>
             </ul>
@@ -39,13 +38,13 @@
                 </div>
                 <div class="modal-input-field first-input-field">
                     <i class="bi bi-envelope"></i>
-                    <input type="text" id="email" name="email" aria-autocomplete="none" required autocomplete="off"><br><br>
+                    <input type="text" id="email1" name="email" aria-autocomplete="none" required autocomplete="off"><br><br>
                     <span></span>
                     <label for="email">Email</label>
                 </div>
                 <div class="modal-input-field">
                     <i class="bi bi-chat-right-dots"></i>
-                    <textarea id="message" name="message" required autocomplete="off"></textarea><br><br>
+                    <textarea id="message1" name="message" required autocomplete="off"></textarea><br><br>
                     <span></span>
                     <label for="message">Message</label><br>
                 </div>
@@ -58,51 +57,103 @@
     <body>
         <div class="introduction" id="introduction-section">
             <h1 class="hello">Hello, my name is Kostas.</h1>
-            <h3 class="welcome">Welcome to my portofolio website!</h3>
+            <h3 class="welcome">A junior software engineer!</h3>
         </div>
         <div class="border-bottom"></div>
-        <div class="about-me" id="aboutme-section">
-            <h2 class="me-text fade-in">
-                Hello and welcome to my portfolio website! My name is Konstantinos Kyriazopoulos and I'm a 22-year-old 
-                Computer Science student at the University of Aristotle in Thessaloniki. I'm passionate about coding and 
-                have worked on a variety of projects that I'm really proud of. One of my biggest projects is the game 
-                I created with Unity, which you can find 
-                <a href="https://konkyr.itch.io/rocketspace" target="_blank" id="aboutme-link"><strong>here</strong></a>
-                . Apart from game development, I have experience with 
-                Java for building PC and Android apps using Android Studio. I'm also skilled in Python, C, C#, HTML, 
-                CSS, Javascript, and PHP. On this website, I'll be sharing more about my projects, so stay tuned!                
-                Thank you for taking the time to visit my website and learn more about me. If you have any questions
-                or want to discuss a project, feel free to reach out to me. Looking forward to hearing from you
-            </h2>
-            <img class="my-img slide-in" src="images/me.jpg">
-        </div>
-        
-        
-        <div class="border-bottom"></div>
-        <div class="scroll-container" id="project-container">
-            <div class="container" id="project-section" project1="active">
-                <div class="content">
-                    <div class="carousel" data-carousel1>
-                        <!-- <i class="fa-solid fa-heart"></i> -->
-                        <button class="carousel-button prev" data-carousel-button="prev1">&#8592;</button>
-                        <button class="carousel-button next" data-carousel-button="next1">&#8594;</button>
-                        <ul data-slides1>
-                            <li class="slide" data-active=>
-                                <img src="images/Aim-Trainer/1.png" alt="Aim-Trainer">
-                            </li>
-                            <li class="slide">
-                                <img src="images/Aim-Trainer/2.png" alt="Aim-Trainer">
-                            </li>
-                            <li class="slide">
-                                <img src="images/Aim-Trainer/3.png" alt="Aim-Trainer">
-                            </li>
-                            <li class="slide">
-                                <img src="images/Aim-Trainer/4.png" alt="Aim-Trainer">
-                            </li>
-                            <li class="slide">
-                                <img src="images/Aim-Trainer/5.png" alt="Aim-Trainer">
-                            </li>
+
+        <div id="project-section">
+            <div class="button-section">
+                <ul>
+                    <li><button id="html-css">HTML/CSS</button></li>
+                    <li><div class="vertical-line"></div></li>
+                    <li><button id="react">React</button></li>
+                    <li><div class="vertical-line"></div></li>
+                    <li><button id="java">Java</button></li>
+                    <li><div class="vertical-line"></div></li>
+                    <li><button id="unity">Unity</button></li>
+                    <li><div class="vertical-line"></div></li>
+                    <li><button id="wordpress">Wordpress</button></li>
+                </ul>
+                <ul id="select-project">
+                    <li><button id="value" class="select-html-css">HTML/CSS<i class="fa-solid fa-angle-down"></i></button>
+                        <ul id="dropdown-menu">
+                            <li><button value="html-css" class="select-html-css">HTML/CSS</button>
+                            <li><button value="react" class="select-react">React</button></li>
+                            <li><button value="java" class="select-java">Java</button></li>
+                            <li><button value="unity" class="select-unity">Unity</button></li>
+                            <li><button value="wordpress" class="select-wordpress">Wordpress</button></li>
                         </ul>
+                    </li>
+                </ul>
+                <!-- <select name="button-section" id="select-button">
+                    <option value="html-css"><button class="select-html-css">HTML/CSS</button></option>
+                    <option value="react"><button class="select-react">React</button></option>
+                    <option value="java"><button class="select-java">Java</button></option>
+                    <option value="unity"><button class="select-unity">Unity</button></option>
+                    <option value="wordpress"><button class="select-wordpress">Wordpress</button></option>
+                </select>            -->
+            </div>
+
+            <!-------------------- HTML/CSS --------------------->
+            <!-------------------- HTML/CSS --------------------->
+            <!-------------------- HTML/CSS --------------------->
+
+            <section id="projects" class="html-css-projects">
+                <div class="project-tile">
+                <div class="project fade-in">
+                    <a href="https://codepen.io/konkyr2001/pen/LYMoWwq" target="_blank">
+                    <img class="project-codepen" src="/images/html-css/RandomQuoteMachine.png" alt="RandomQuoteMachine project">
+                    <span>< </span><label>Random Quote Generator</label> <span>/></span></a>
+                </div>
+                <div class="project fade-in">
+                    <a href="https://codepen.io/konkyr2001/pen/XWoLGmO" target="_blank">
+                    <img class="project-codepen"  src="/images/html-css/Markdown Previewer.png" alt="RandomQuoteMachine project">
+                    <span>< </span><label>Markdown Previewer</label> <span>/></span></a>
+                </div>
+                <div class="project fade-in">
+                    <a href="https://codepen.io/konkyr2001/pen/ZEwYRPO" target="_blank">
+                    <img class="project-codepen"  src="/images/html-css/Calculator.png" alt="RandomQuoteMachine project">
+                    <span>< </span><label>Calculator</label> <span>/></span></a>
+                </div>
+                </div>
+            </section>
+            
+            <!-------------------- REACT --------------------->
+            <!-------------------- REACT --------------------->
+            <!-------------------- REACT --------------------->
+
+            <section id="projects" class="react-projects">
+                <div class="project-tile">
+                <div class="project fade-in">
+                    <a href="https://codepen.io/konkyr2001/pen/dywxNGy" target="_blank">
+                    <img class="project-codepen"  src="/images/html-css/Drum Machine.png" alt="RandomQuoteMachine project">
+                    <span>< </span><label>Drum Machine</label> <span>/></span></a>
+                </div>
+                <div class="project fade-in">
+                    <a href="https://codepen.io/konkyr2001/pen/KKJdMVP" target="_blank">
+                    <img class="project-codepen"  src="/images/html-css/Pomodoro.png" alt="RandomQuoteMachine project">
+                    <span>< </span><label>Pomodoro Timer</label> <span>/></span></a>
+                </div>
+                </div>
+            </section>
+
+
+            <!-------------------- JAVA --------------------->
+            <!-------------------- JAVA --------------------->
+            <!-------------------- JAVA --------------------->
+            
+
+            <section id="projects" class="java-projects">
+                <div class="project-tile">
+                    <div class="project fade-in">
+                        <div class="data-slides" data-slides1>
+                            <img data-active class="project-codepen slide" src="images/Aim-Trainer/1.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Aim-Trainer/2.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Aim-Trainer/3.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Aim-Trainer/4.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Aim-Trainer/5.png" alt="Aim-Trainer">
+                        </div>
+                        <label>Aim Trainer</label>
                         <div class="input-slides">
                             <input type="radio" name="input1" data-radio-button="0" checked></input>
                             <input type="radio" name="input1" data-radio-button="1"></input>
@@ -110,101 +161,148 @@
                             <input type="radio" name="input1" data-radio-button="3"></input>
                             <input type="radio" name="input1" data-radio-button="4"></input>
                         </div>
+                        <button class="carousel-button prev" data-carousel-button="prev1"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button class="carousel-button next" data-carousel-button="next1"><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
-                    <h3>Aim Trainer</h3>
-                    <h5 class="project-description">
-                        Aim Trainer is a game that helps you improve your mouse aiming accuracy. It features 
-                        three different modes - Survival, Casual, and Speed - each with their own unique challenges. 
-                        In Survival mode, you have to shoot down as many targets as you can with three lives. 
-                        In Casual mode, you have to hit as many targets as possible within a limited time frame. 
-                        In Speed mode, you have to click as quickly as possible within a five-second time limit. 
-                    </h5>
-                </div>
-            </div>
-            <div class="container" project2="null" id="container2">
-                <div class="content">
-                        <div class="carousel" data-carousel2>
-                            <button class="carousel-button prev" data-carousel-button="prev2">&#8592;</button>
-                            <button class="carousel-button next" data-carousel-button="next2">&#8594;</button>
-                            <ul data-slides2>
-                                <li class="slide" data-active="">
-                                    <img src="images/Calculator/1.png" alt="Calculator">
-                                </li>
-                                <li class="slide">
-                                    <img src="images/Calculator/2.png" alt="Calculator">
-                                </li>
-                                <li class="slide">
-                                    <img src="images/Calculator/3.png" alt="Calculator">
-                                </li>
-                                <li class="slide">
-                                    <img src="images/Calculator/4.png" alt="Calculator">
-                                </li>
-                                <li class="slide">
-                                    <img src="images/Calculator/5.png" alt="Calculator">
-                                </li>
-                            </ul>
-                            <div class="input-slides">
-                                <input type="radio" name="input2" data-radio-button="0" checked>
-                                <input type="radio" name="input2" data-radio-button="1">
-                                <input type="radio" name="input2" data-radio-button="2">
-                                <input type="radio" name="input2" data-radio-button="3">
-                                <input type="radio" name="input2" data-radio-button="4">
-                            </div>
+                    <div class="project fade-in">
+                        <div class="data-slides" data-slides2>
+                            <img data-active class="project-codepen slide" src="images/Calculator/1.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Calculator/2.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Calculator/3.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Calculator/4.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Calculator/5.png" alt="Aim-Trainer">
                         </div>
-                    <h3>Calculator</h3>
-                    <h5 class="project-description">
-                        This calculator app is easy to use and can perform basic arithmetic operations, 
-                        as well as calculate square roots, handle floating and negative numbers, and 
-                        compute factorials. It saves your previous results for easy reference and has 
-                        light and dark mode options. It can display up to 12 characters, making it suitable 
-                        for both simple and complex calculations.
-                    </h5>
-                </div>
-            </div>
-            <div class="container" project3="null" id="container3">
-                <div class="content">
-                        <div class="carousel" data-carousel3>
-                            <!-- <i class="fa-solid fa-heart"></i> -->
-                            <button class="carousel-button prev" data-carousel-button="prev3">&#8592;</button>
-                            <button class="carousel-button next" data-carousel-button="next3">&#8594;</button>
-                            <ul data-slides3>
-                                <li class="slide" data-active>
-                                    <img src="images/Alarm/1.png" alt="Alarm">
-                                </li>
-                                <li class="slide">
-                                    <img src="images/Alarm/2.png" alt="Alarm">
-                                </li>
-                                <li class="slide">
-                                    <img src="images/Alarm/3.png" alt="Alarm">
-                                </li>
-                                <li class="slide">
-                                    <img src="images/Alarm/4.png" alt="Alarm">
-                                </li>
-                                <li class="slide">
-                                    <img src="images/Alarm/5.png" alt="Alarm">
-                                </li>
-                            </ul>
-                            <div class="input-slides">
-                                <input type="radio" name="input3" data-radio-button="0" checked>
-                                <input type="radio" name="input3" data-radio-button="1">
-                                <input type="radio" name="input3" data-radio-button="2">
-                                <input type="radio" name="input3" data-radio-button="3">
-                                <input type="radio" name="input3" data-radio-button="4">
-                            </div>
+                        <label>Calculator</label>
+                        <div class="input-slides">
+                            <input type="radio" name="input2" data-radio-button="0" checked></input>
+                            <input type="radio" name="input2" data-radio-button="1"></input>
+                            <input type="radio" name="input2" data-radio-button="2"></input>
+                            <input type="radio" name="input2" data-radio-button="3"></input>
+                            <input type="radio" name="input2" data-radio-button="4"></input>
                         </div>
-                    <h3>Alarm</h3>
-                    <h5 class="project-description">
-                        My Android alarm app is a simple yet functional tool that lets you set 
-                        multiple alarms, turn them off and on, or delete them as needed. It also 
-                        has an alarm history feature that lets you restore any accidentally deleted 
-                        alarms. But what makes my app unique is its innovative feature that requires 
-                        you to solve equations before the alarm turns off. This helps you start your 
-                        day off on the right foot and ensure that you wake up both your body and mind.
-                    </h5>
+                        <button class="carousel-button prev" data-carousel-button="prev2"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button class="carousel-button next" data-carousel-button="next2"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="project fade-in">
+                        <div class="data-slides" data-slides3>
+                            <img data-active class="project-codepen slide" src="images/Alarm/1.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Alarm/2.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Alarm/3.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Alarm/4.png" alt="Aim-Trainer">
+                            <img class="project-codepen slide" src="images/Alarm/5.png" alt="Aim-Trainer">
+                        </div>
+                        <label>Alarm</label>
+                        <div class="input-slides">
+                            <input type="radio" name="input3" data-radio-button="0" checked></input>
+                            <input type="radio" name="input3" data-radio-button="1"></input>
+                            <input type="radio" name="input3" data-radio-button="2"></input>
+                            <input type="radio" name="input3" data-radio-button="3"></input>
+                            <input type="radio" name="input3" data-radio-button="4"></input>
+                        </div>
+                        <button class="carousel-button prev" data-carousel-button="prev3"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button class="carousel-button next" data-carousel-button="next3"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
                 </div>
-            </div>       
+            </section>
+
+
+            <!-------------------- UNITY --------------------->
+            <!-------------------- UNITY --------------------->
+            <!-------------------- UNITY --------------------->
+
+            <section id="projects" class="unity-projects">
+                <div class="project-tile">
+                    <div class="project fade-in">
+                        <a class="carousel" data-slides4 href="https://konkyr.itch.io/rocketspace" target="_blank">
+                            <img data-active class="project-codepen slide" src="images/unity/RocketSpace1.png" alt="RocketSpace">
+                            <img class="project-codepen slide" src="images/unity/RocketSpace2.png" alt="RocketSpace">
+                            <img class="project-codepen slide" src="images/unity/RocketSpace3.png" alt="RocketSpace">
+                        </a>
+                        <label>RocketSpace</label>
+                        <div class="input-slides">
+                            <input type="radio" name="input4" data-radio-button="0" checked></input>
+                            <input type="radio" name="input4" data-radio-button="1"></input>
+                            <input type="radio" name="input4" data-radio-button="2"></input>
+                        </div>
+                        <button class="carousel-button prev" data-carousel-button="prev4"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button class="carousel-button next" data-carousel-button="next4"><i class="fa-solid fa-arrow-right"></i></button>
+                    </div>
+                    <div class="project fade-in">
+                        <button class="carousel-button prev" data-carousel-button="prev5"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button class="carousel-button next" data-carousel-button="next5"><i class="fa-solid fa-arrow-right"></i></button>
+                        <a class="carousel" data-slides5 href="https://konkyr.itch.io/rocketspace" target="_blank">
+                            <img data-active class="project-codepen slide" src="images/unity/nealand1.png" alt="Nealand">
+                            <img class="project-codepen slide" src="images/unity/nealand2.png" alt="Nealand">
+                            <img class="project-codepen slide" src="images/unity/nealand3.png" alt="Nealand">
+                            <img class="project-codepen slide" src="images/unity/nealand4.png" alt="Nealand">
+                            <img class="project-codepen slide" src="images/unity/nealand5.png" alt="Nealand">
+                        </a>
+                        <label>Nealand</label></a>
+                        <div class="input-slides">
+                            <input type="radio" name="input5" data-radio-button="0" checked></input>
+                            <input type="radio" name="input5" data-radio-button="1"></input>
+                            <input type="radio" name="input5" data-radio-button="2"></input>
+                            <input type="radio" name="input5" data-radio-button="3"></input>
+                            <input type="radio" name="input5" data-radio-button="4"></input>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+            <!-------------------- WORDPRESS --------------------->
+            <!-------------------- WORDPRESS --------------------->
+            <!-------------------- WORDPRESS --------------------->
+
+            <section id="projects" class="wordpress-projects">
+                <div class="project-tile">
+                <div class="project fade-in">
+                    <a href="https://atravel.gr/" target="_blank">
+                    <img class="project-codepen" src="/images/wordpress/atravel.png" alt="RandomQuoteMachine project">
+                    <span>< </span><label>Alfa Travel</label> <span>/></span></a>
+                </div>
+                </div>
+            </section>
         </div>
         <div class="border-bottom border-bottom2"></div>
+
+        <div id="info-section">
+            <div class="one-section fade-in">
+                <img id="my-img" class="my-img slide-out" src="images/me.jpg" alt="Me">
+                <p id="my-text" class="me-text">
+                    Hello again! My name is Konstantinos Kyriazopoulos and I'm 22 years old studying Computer Science.
+                    I'm passionate about learning and always challenging myself to the limits!
+                    I believe in limitless possibilities and approach each project as an opportunity to expand my knowledge and skills. 
+                    Join me on this extraordinary journey of continuous learning and growth!
+                </p>
+            </div>
+            <div class="second-section fade-in">
+                <form id="email-me" action="https://formspree.io/f/xayzzydw" class="email-form" method="post" novalidate>
+                    <div class="message-icon">
+                        <i class="bi bi-telegram"></i>
+                        <span>Message</span>
+                    </div>
+                    <div class="modal-input-field first-input-field">
+                        <i class="bi bi-envelope"></i>
+                        <input type="text" id="email2" name="email" aria-autocomplete="none" required autocomplete="off"><br><br>
+                         <span></span>
+                        <label for="email">Email</label>
+                    </div>
+                    <div class="modal-input-field">
+                        <i class="bi bi-chat-right-dots"></i>
+                        <textarea id="message2" name="message" required autocomplete="off"></textarea><br><br>
+                        <span></span>
+                        <label for="message">Message</label><br>
+                    </div>
+                    <center>
+                        <button type="submit" class="send-btn" id="close-btn">Submit</button>
+                    </center>
+                </form>
+            </div>
+        </div>
+        <div class="border-bottom border-bottom2"></div>
+
         <section class="footer" id="socials-section">
             <div class="social">
                 <a href="https://www.facebook.com/kostas.kyriazopoylos.3/" onmouseover="socialsUp(this,0)" onmouseleave="socialsDown(this,0)" target="_blank"><i class="fab fa-facebook" id="fb"></i></a>
@@ -212,11 +310,12 @@
                 <a href="https://github.com/konkyr2001" onmouseover="socialsUp(this,2)" onmouseleave="socialsDown(this,2)" target="_blank"><i class="fab fa-github" id="git"></i></a>
                 <a href="https://www.linkedin.com/in/konstantinos-kyriazopoulos-4a44b8233/" onmouseover="socialsUp(this,3)" onmouseleave="socialsDown(this,3)" target="_blank"><i class="fab fa-linkedin" id="lin"></i></a>
                 <a href="https://konkyr.itch.io/rocketspace" onmouseover="socialsUp(this,4)" onmouseleave="socialsDown(this,4)" target="_blank"><i class="fab fa-itch-io" id="itch"></i></a>
-                                
+                <a href="https://codepen.io/konkyr2001" onmouseover="socialsUp(this,5)" onmouseleave="socialsDown(this,5)" target="_blank"><i class="fab fa-codepen" id="codepen"></i></a>
+                
             </div>
             <ul class="list">
                 <li><a href="#introduction-section">Home</a></li>
-                <li><a name="about" href="#aboutme-section">About</a></li>
+                <li><a name="about" href="#info-section">About</a></li>
                 <li><a name="project" href="#project-section">Projects</a></li>
             </ul>
             <center><p class="copyright">
@@ -249,7 +348,11 @@
                 } else if ( x === 4) {
                     element = document.getElementById("itch")
                     object.style.backgroundColor = "rgb(255, 41, 0)"
-                    element.style.color = "rgb(28, 32, 11)";
+                    element.style.color = "white";
+                } else if ( x === 5) {
+                    element = document.getElementById("codepen")
+                    object.style.backgroundColor = "rgb(0, 0, 0)"
+                    element.style.color = "white";
                 }
             }
 
@@ -265,6 +368,8 @@
                     element = document.getElementById("lin")
                 } else if ( x === 4) {
                     element = document.getElementById("itch")
+                } else if ( x === 5) {
+                    element = document.getElementById("codepen")
                 }
 
                 element.style.color = "black"

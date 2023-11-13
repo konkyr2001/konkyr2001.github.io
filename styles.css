@@ -14,6 +14,7 @@
      height: 100%;
      margin: 0;
      background-color: #4255b8;
+     overflow-x: hidden;
  }
  
  /* for everything */
@@ -25,6 +26,33 @@
      justify-content: center;
  }
  
+ /* CUSTOM SCROLL BAR */
+ ::-webkit-scrollbar {
+    height: 18px;
+    width: 18px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background-color: #7087d4; /* Color of the scrollbar thumb */
+    border-radius: 100vw;
+    border: .25em solid #f1f1f1;
+  }
+::-webkit-scrollbar-thumb:hover {
+    background-color: #5c73bd; /* Color of the scrollbar thumb */
+
+}
+
+::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color of the scrollbar track */
+    margin-block: 5em;
+    border-radius: 100vw;
+  }
+  
+::-ms-overflow-style {
+    scrollbar-color: #8070d4 #f1f1f1; /* Color of the scrollbar thumb and track */
+  }
+  
+
  /* making the header with boxes */
  header {
     width: 100%;
@@ -54,10 +82,10 @@
     padding: 0px 20px;
     display: inline-block;
   }
-  .nav-links li:nth-child(1),
+  /* .nav-links li:nth-child(1),
   .nav-links li:nth-child(2) {
     padding: 0px 5px;
-  }
+  } */
   
   .nav-links li,
   .nav-links li a {
@@ -366,218 +394,350 @@
 }
  /* HELLO SECTION FINISH */
  
- /* ABOUT ME SECTION START */
- .about-me {
-     /* decorating the div look */
-     /* background-color: yellow; */
-     margin: auto;
-     color:rgb(214, 218, 219);
-     height: 75%;
-     width: 100%;
-     /* putting the elements inside at the center */
-     display: flex;
-     flex-wrap: wrap;
-     justify-content: center;
-     align-items: center;
- }
- .me-text {
-     width: 50%;
-     max-height:70%;
-     font-family: 'Poppins', sans-serif;
-     font-size: 1.3vw;
-     text-align: justify;
-     margin: 50px;
- }
-#aboutme-link {
-    color: rgb(108, 176, 210);
-    font-size: inherit;
-    text-decoration: underline;
-    transition: color 150ms;
+.button-section {
+    margin-top: 70px;
+    width: 100%;
+    text-align: center;
+    height: 60px;
 }
-    /* display: inline-block;
-    font-weight: inherit;
-    text-decoration: underline; */
-#aboutme-link:hover {
-    color: rgb(70, 125, 153);
-
+.button-section > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
 }
- .my-img {
-     width: 15%;
-     cursor: default;
-     opacity: 0;
- }
-
-/* about-me section transitions and animations */
-.fade-in {
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+.button-section > ul > li {
+    display: inline-block;
+}
+.button-section > ul > li > button {
+    font-size: 40px;
+    border-radius: 20px;
+    padding: 15px;
+    color: rgba(230, 230, 230, 0.5);
+    background-color: #242582;
+    cursor: pointer;
+    transition: all 0.3s;
   }
   
-  .slide-in {
-    position: relative;
-    transform: translateX(50%);
-    transition: transform 1.5s ease-in-out,
-    opacity 1.5s ease-in-out;
-  }
-  
-  .fade-in.animate {
-    opacity: 1;
-  }
-  
-  .slide-in.animate {
-    opacity: 1;
-    transform: translateX(0);
-  }
-    
-@media screen and (max-width: 1000px) {
-    .me-text {
-        font-size: 100%;
-    }
-    .my-img {
-        width: 180px;
-    }
-    .slide-in {
-        transform: translateX(40%);
-    }
+.button-section > ul > li > button:hover {
+    background-color: #3546b0;
+    color: rgba(240, 240, 240, 0.9);
+    font-size: 45px;
 }
-@media screen and (max-width: 900px) {
-    .slide-in {
-        transform: translateX(30%);
-    }
+.button-section > ul > li > .project-active {
+    background-color: #465be1;
+    color: rgba(250, 250, 250, 1);
+    font-size: 47px;
+    transition: all 0.3s;
 }
-@media screen and (max-width: 800px) {
-    .about-me {
-        /* height: 40rem; */
-        height: auto;
-        min-height: 75%;
-    }
-    .me-text {
-        width: 75%;
-        height: 50%;
-        font-size: 90%;
-        margin: 0px;
-        margin-top: 50px;
-        margin-right: 40px;
-        margin-left: 40px;
-        margin-bottom: 0px;
-    }
-    .my-img {
-        width: 25%;
-        padding-bottom: 20px;
-
-    }
-    .slide-in {
-        transform: translateX(70%);
-    }
+.button-section > ul > li > button:focus {
+    background-color: #465be1;
+    color: rgba(250, 250, 250, 1);
+    font-size: 47px;
+    transition: all 0.3s;
 }
 
-@media screen and (max-width: 550px) {
-    .about-me {
-        /* height: 32rem; */
-        height: auto;
-        min-height: 70%;
+.vertical-line {
+    height: 100px;
+    width: 7px;
+    border-radius: 10px;
+    margin: 0px 20px;
+    background-color: #161d4a;
+
+}
+
+#select-project {
+    display: none;
+}
+@media only screen and (max-width: 1200px) {
+    .button-section > ul > li > button {
+        font-size: 30px; /* Adjust font size for smaller screens */
+      }
+      
+      .button-section > ul > li > button:hover {
+        font-size: 32px; /* Adjust font size for hover on smaller screens */
+      }
+      
+      .button-section > ul > li > .project-active,
+      .button-section > ul > li > button:focus {
+        font-size: 35px; /* Adjust font size for active/focused state on smaller screens */
+      }
+      
+      .vertical-line {
+        height: 60px; /* Adjust height for smaller screens */
+        width: 5px; /* Adjust width for smaller screens */
+        border-radius: 5px; /* Adjust border radius for smaller screens */
+        margin: 0px 10px; /* Adjust margin for smaller screens */
+      }
+}
+@media only screen and (max-width: 900px) {
+    .button-section > ul {
+        margin-right: 0px;
     }
-    .me-text {
-        margin: 30px;
-        width: 85%;
-        font-size: 75%;
+    .button-section > ul > li > button {
+        font-size: 25px; /* Adjust font size for smaller screens */
+        padding: 8px;
+      }
+      
+      .button-section > ul > li > button:hover {
+        font-size: 27px; /* Adjust font size for hover on smaller screens */
+      }
+      
+      .button-section > ul > li > .project-active,
+      .button-section > ul > li > button:focus {
+        font-size: 30px; /* Adjust font size for active/focused state on smaller screens */
+      }
+      
+      .vertical-line {
+        height: 40px; /* Adjust height for smaller screens */
+        width: 3px; /* Adjust width for smaller screens */
+        border-radius: 5px; /* Adjust border radius for smaller screens */
+        margin: 0px 5px; /* Adjust margin for smaller screens */
+      }
+}
+@media only screen and (max-width: 600px) {
+    .button-section > ul {
+        display: none;
     }
-    .my-img {
-        width: 25%;
-        margin-top: 8%;
-        margin-bottom: 0%;
-    }
-    .slide-in {
-        transform: translateX(50%);
-    }
-} 
-@media only screen and (max-width: 415px) {
-    .about-me {
+    #select-project {
+        display: block;
         width: 100%;
-        height: auto;
-        min-height: 65%;
+        position: relative;
+        list-style: none;
     }
-    .me-text {
-        width: 85%;
-        font-size: 70%;
+    #select-project button {
+        background-color: #242582;
+        position: relative;
+        width: 230px;
+        height: 60px;
+        font-size: 35px;
+        color: white;
+        border: none;
+        padding: 10px 15px;
+        cursor: pointer;
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
     }
-    .my-img {
-        width: 30%;
-        margin-bottom: 10%;
+    #select-project > li > button > i {
+        margin-top: 3px;
+        margin-left: auto;
+    }
+    #dropdown-menu > li {
+        display: block;
+        width: 100%;
+        background-color: #242582;
+    }
+    #dropdown-menu > li > button {
+        z-index: 999;
+        width: 100%;
+    }
+    #dropdown-menu {
+        opacity: 0;        
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        transition: 400ms ease-in-out;
+    }
+    #dropdown-menu.show-dropdown-menu {
+        opacity: 1;
+    }
+      
+    #dropdown-menu li {
+        opacity: 0;
+        transform: translateY(20px); /* Optional: Add a subtle vertical transition effect */
+        transition: opacity 300ms ease-in-out, transform 300ms ease-in-out;
+    }
+    
+    #dropdown-menu.show-dropdown-menu li {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 100ms; /* Adjust the delay value for each menu item */
     }
 }
+@media only screen and (max-width: 400px) {
+    #select-project button {
+        width: 180px;
+        height: 50px;
+        font-size: 25px;
+    }
+    #dropdown-menu > li > button {
+        font-size: 25px;
+    }
+}
+ /* CODEPEN PROJECT SECTION STARTS */
+  
+ 
+  #projects {
+    width: 100%;
+    font-family: coding;
+    text-align: center;
+    font-size: 50px;
+    text-underline-offset: 20px;
+    padding-top: 50px;
+    color: white;
+  }
+  
+
+
+  .project-tile {
+    display: flex;
+    max-width: 1600px;
+    padding: 70px;
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    height: auto;
+  }
+
+  .project {
+    position: relative;
+    width: 500px;
+    height: 100%;
+    margin: 40px 10px 40px 10px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #242582;
+    text-align: center;
+  }
+  /* .unity-projects > .project:nth-child(1) {
+    width: 1080px;
+    height: 385px;
+  }
+  .unity-projects > .project:nth-child(2) {
+    width: 1180px; 
+    height: 932px;
+  } */
+  .project > a, 
+  .project > ul > li > a {
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    background-color: #242582;
+    border-radius: 20px;
+    text-decoration: none;
+  }
+  
+  .project-codepen {
+    display: block;
+    margin: auto;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 20px 20px 0px 0px;
+  }
+  
+  .project > ul > li {
+    object-fit: contain;
+    height: 100%;
+  }
+
+  .project > a > label,
+    .project > .carousel > ul > li > a > label {
+    cursor: pointer;
+    color: white;
+    font-size: 30px;
+    width: 281px;
+    height: 200px;
+    transition: 0.3s ease-in-out;
+  }
+
+  label {
+    font-size: 30px;
+  }
+
+  a > span {
+    font-size: 25px;
+    color: #f64c72;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+  }
+  
+  .project > a:hover > span {
+    opacity: 1;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    .project {
+      justify-content: center;
+      margin: 40px auto 40px auto;
+    }
+  }
+  @media only screen and (max-width: 900px) {  
+    .project-tile {
+      max-width: 600px;
+    }
+  
+    #projects {
+      font-size: 30px;
+    }
+  
+    .project {
+      width: 400px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+  
+    .project > a > label {
+      font-size: 20px;
+    }
+  }
+  
+  @media only screen and (max-width: 620px) {  
+    #projects {
+      font-size: 25px;
+    }
+  
+    .project-tile {
+      width: 90%;
+      padding: 0;
+    }
+  
+    .project {
+      width: 100%;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    } 
+    .border-bottom2 {
+        padding-top: 50px;
+    }
+  }
+  
+  @media only screen and (max-width: 400px) {  
+    #projects {
+      font-size: 19px;
+    }
+    
+    .project > a > span {
+        display: none;
+    }
+
+    .project > a > label {
+      font-size: 20px;
+    }
+
+    .project > label {
+        font-size: 20px;
+    }
+}
+
+ /* CODEPEN PROJECT SECTION ENDS */
+
+
  /* ------------------------------- */
  /* ------------------------------- */
- /*     ABOUT ME SECTION FINISH     */
+ /*     PROJECT SECTION FINISHED    */
  /* ------------------------------- */
  /* ------------------------------- */
  
- .border-bottom {
-     margin: auto;
-     width: 400px;
-     border-bottom: solid rgb(0, 0, 0) 3px;
- }
- .scroll-container {
-    width: 100%;
-    height: 43rem;
-    scroll-behavior: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: hidden; /* Hide horizontal scrollbar */
-    overflow-y: auto; /* Add vertical scrollbar */
-    scroll-behavior: smooth; /* Add smooth scrolling */
-    scrollbar-width: thin;
-  }
-  
-::-webkit-scrollbar {
-    height: 18px;
-    width: 18px;
-  }
-  
-::-webkit-scrollbar-thumb {
-    background-color: #7087d4; /* Color of the scrollbar thumb */
-    border-radius: 100vw;
-    border: .25em solid #f1f1f1;
-  }
-::-webkit-scrollbar-thumb:hover {
-    background-color: #5c73bd; /* Color of the scrollbar thumb */
-
-}
-
-::-webkit-scrollbar-track {
-    background-color: #f1f1f1; /* Color of the scrollbar track */
-    margin-block: 5em;
-    border-radius: 100vw;
-  }
-  
-::-ms-overflow-style {
-    scrollbar-color: #8070d4 #f1f1f1; /* Color of the scrollbar thumb and track */
-  }
-  
-  
- .container {
-     flex: 1 0 100%;
- }
- .content {
-     font-family: aboutme;
-     margin: auto;
-     min-height: 32rem;
-     width: 33rem;
-     border-radius: 80px;
-     box-shadow: -1px 0 10px #000;
-     padding: 7px 17px 0px 17px;
-     align-items: center;
-     justify-content: center;
-     text-align: center;
-     position: relative;
- }
  .carousel {
      width: 100%;
-     height: 23rem;
+     height: 100%;
      position: relative;
-     margin-top: 15px;
      border-radius: 80px;
  }
  .carousel > ul {
@@ -585,38 +745,33 @@
      padding: 0;
      list-style: none;
  }
+
+ .data-slides {
+    position: relative;
+ }
  .slide {
-     position: absolute;
-     width: 29rem;
-     height: 23rem;
-     margin: auto;
-     border-radius: 80px;
-     inset: 0;
-     opacity: 0;
-     transition: 200ms opacity ease-in-out;
-     transition-delay: 200ms;
- }
- .container:nth-child(2) .slide {
-     width: 400px;
-     height: 380px;
-     object-position: center;
-     margin: auto;
- }
- .container:nth-child(3) .slide {
-     width: 300px;
-     height: 380px;
-     object-position: center;
-     margin: auto;
- }
- .slide[data-active] {
-     opacity: 1;
-     z-index: 1;
-     transition-delay: 0ms;
- }
+    position: absolute;
+    visibility: hidden;
+    inset: 0;
+    opacity: 0;
+    transition: visibility 5s linear, opacity 0.5s linear;
+}
+
+.slide[data-active] {
+    position: relative;
+    visibility: visible;
+    opacity: 1;
+    z-index: 1;
+    transition-delay: 0s;
+}
+
+
  .slide > img {
-     width: 65%;
-     height: 90%;
-     object-position: center;
+    display: block;
+    margin: auto;
+    width: 100%;
+    object-fit: contain;
+    border-radius: 20px 20px 0px 0px;
  }
  .carousel-button {
      position: absolute;
@@ -625,10 +780,11 @@
      border: none;
      border-radius: .25rem;
      font-size: 2.5rem;
-     top: 48%;
+     top: 50%;
      transform: translateY(-50%);
      cursor: pointer;
      color: rgba(255,255,255,.5);
+     outline: none;
      padding: 0 .25rem;
      background-color: rgba(0,0,0,.1);
  }
@@ -638,18 +794,19 @@
  .carousel-button.next {
      right: 1rem;
  }
- .carousel-button:hover,
- .carousel-button:focus {
-     color: white;
+ .carousel-button:hover {
+     color: rgb(220,220,220);
      background-color: rgba(0,0,0,.2);
  }
- .carousel-button:focus {
-     outline: 1px solid black;
- }
+ .carousel-button:active {
+    color: rgb(250,250,250);
+    background-color: rgba(0,0,0,.4);
+}
  .input-slides {
      width: 100%;
      position: absolute;
-     bottom: 0.5rem;
+     bottom: -35px;
+     /* bottom: 0.5rem; */
      z-index: 1;
  }
  .input-slides input {
@@ -660,236 +817,359 @@
      color: black;
  }
 
- .container {
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-  
-  .container.visible {
-    opacity: 1;
-  }
-  .project-description {
-    padding-bottom: 5px;
-    border-radius: 80px;
-  }
-@media screen and (max-width: 1300px) {
-    .scroll-container {
-        overflow-x: scroll;
-    }
-    .border-bottom2 {
-        margin-top: 50px;
-    }
+
+ .border-bottom {
+    margin: auto;
+    width: 400px;
+    border-bottom: solid rgb(0, 0, 0) 3px;
 }
-@media screen and (max-width: 900px) {
-    .scroll-container {
-        overflow-x: scroll;
-        height: 40rem;
-    }
-    .border-bottom2 {
-        margin-top: 50px;
-    }
-    .content {
-        /* height: 32.5rem; */
-        width: 30rem;
-        /* display: block;
-        overflow: auto; */
-        height: auto;
-        min-height: 100% !important;
-    }
-    .carousel {
-        margin-top: 10px;
-        height: 20rem;
-    }
-    .scroll-container .container:nth-child(2) .carousel {
-        margin-top: 10px;
-        height: 21rem;
-    }
-    .scroll-container .container:nth-child(3) .carousel {
-        margin-top: 10px;
-        height: 20.9rem;
-    }
-    .slide {
-        width: 26rem;
-        height: 20rem;
-    }
-    .container:nth-child(2) .slide {
-        width: 370px;
-        height: 340px;
-    }
-    .container:nth-child(3) .slide {
-        width: 250px;
-        height: 340px;
-    }
+
+/* INFOO */
+
+#info-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    height: 800px;
+    /* padding: 50px; */
+    /* margin: 50px; */
+}
+
+.one-section {
+    width: 800px;
+}
+.second-section {
+    margin-right: 100px;
+    width: 600px; /* to take more space */
+}
+.my-img {
+    display: inline-block;
+    width: 350px;
+    border-radius: 50%;
+    cursor: pointer;
+   }
+.me-text {
+    display: inline-block;
+    position: relative;
+    opacity: 0;
+    visibility: hidden;
+    text-align: center;
+    width: 350px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    color: rgb(230,230,230);
+    text-align: justify;
+    transition: 1s ease-in-out all;
+}
+#aboutme-link {
+   color: rgb(108, 176, 210);
+   text-underline-offset: 3px;
+   font-size: inherit;
+   text-decoration: underline;
+   transition: color 150ms;
+}
+#email-me {
+    border-radius: 20px;
+    outline: 2px solid black;
+    padding: 10px 20px;
+    font-size: 25px;
+    width: 450px;
+    height: 550px;
+}
+#email-me > .modal-input-field input {
+    font-size: 20px;
+}
+#email-me > .modal-input-field textarea {
+    font-size: 20px;
+}
+#email-me > .modal-input-field label {
+    font-size: 20px;
+}
+#aboutme-link:hover {
+   color: rgb(70, 125, 153);
 
 }
-@media screen and (max-width: 800px) {
-    .scroll-container {
-        overflow-x: scroll;
-        height: 40rem;
+
+.fade-in {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+  }
+
+  .fade-in.animate {
+    opacity: 1;
+  }
+
+  .slide-in {
+    position: relative;
+    transform: translateX(-20%);
+    transition: transform 1.5s ease-in-out,
+    opacity 1.5s ease-in-out;
+  }
+
+  .slide-in.animate {
+    opacity: 1;
+    transform: translateX(20%);
+    transition: transform 1.5s ease-in-out,
+    opacity 1.5s ease-in-out;
+  }
+
+  .slide-out {
+    position: relative;
+    transform: translateX(50%);
+    transition: transform 1s ease-in-out;
+  }
+  .slide-out.animate {
+    transform: translateX(10%);
+  }
+@media screen and (max-width: 1600px) {
+    #info-section {
+        justify-content: space-between;
     }
-    .content {
-        /* padding: 3px 17px 0px 17px; */
-        /* height: 32.5rem; */
-        width: 28rem;
-        /* display: block;
-        overflow: auto; */
-        height: auto;
-        min-height: 100% !important;
+    .one-section {
+        width: 1000px;
     }
-    .carousel {
-        margin-top: 10px;
+    .second-section {
+        width: 700px;
+        margin-right: 20px;
     }
-    .scroll-container .container:nth-child(3) .slide > img {
-        margin-top: 15px;
-        height: 85%;
+    .my-img {
+        width: 300px;
     }
-    .scroll-container .container:nth-child(3) .input-slides {
-        position: absolute;
-        bottom: -7px;
+    .me-text {
+        width: 300px;
+        font-size: 18px;
     }
-    .scroll-container .container:nth-child(3) .carousel {
-        height: 19rem;
+    #email-me {
+        width: 400px;
+        font-size: 20px;
     }
-    .scroll-container .container:nth-child(3) .project-description {
-        padding-bottom: 10px;
+    #email-me > .modal-input-field input {
+        font-size: 18px;
     }
-    .carousel-button {
-        font-size: 2rem;
+    #email-me > .modal-input-field textarea {
+        font-size: 18px;
     }
-     .container:nth-child(1) .slide {
-        padding-right: 5px;
-     }
-     .container:nth-child(2) .slide {
-        padding-right: 5px;
-    }
-    .container:nth-child(3) .slide {
-        padding-right: 5px;
+    #email-me > .modal-input-field label {
+        font-size: 18px;
     }
 }
-@media screen and (max-width: 700px) {
-    .scroll-container {
-        width: 100%;
-        height: 125rem;
-        overflow-x: hidden;
-        display: flex;
+@media screen and (max-width: 1200px) {
+    #info-section {
+        justify-content: space-around;
+    }
+    .one-section {
+        width: 300px;
+        margin-left:  70px;
+    }
+    .second-section {
+        width: 400px;
+        margin-right: 50px;
+    }
+    .my-img {
+        width: 280px;
+    }
+    .me-text {
+        margin-right: 50px;
+        width: 300px;
+        font-size: 15px;
+    }
+    #email-me {
+        width: 350px;
+        height: 500px;
+        font-size: 20px;
+        padding: 1px 20px;
+    }
+    #email-me > .modal-input-field textarea {
+        font-size: 16px;
+        height: 100px;
+    }
+
+
+    .slide-out {
+        transform: translateY(40%);
+    }
+    .slide-out.animate {
+        transform: translateY(0%);
+    }
+    .slide-in {
+        transform: translateY(20%);
+    }
+      
+    .slide-in.animate {
+        transform: translateY(0%);
+    }
+}
+@media screen and (max-width: 1000px) {
+    #info-section {
+        justify-content: space-around;
+    }
+    .one-section {
+        width: 300px;
+        margin-left: 40px;
+    }
+    .second-section {
+        width: 300px;
+        margin-right: 0px;
+    }
+    .me-text {
+        margin-right: 50px;
+        width: 300px;
+        font-size: 15px;
+    }
+    .my-img {
+        margin-left: 20px;
+        width: 250px;
+    }
+    #email-me {
+        width: 300px;
+        height: 405px;
+        font-size: 20px;
+        padding: 1px 20px;
+    }
+    #email-me  > .message-icon {
+        margin-top: 20px;
+    }
+    #email-me > .modal-input-field {
+        margin-top: 35px;
+        padding-left: 7px;
+    }
+    #email-me > .modal-input-field:nth-child(2) > i {
+        margin-top: 5px;
+    }
+    #email-me > .modal-input-field:nth-child(3) > i {
+        margin-top: 5px;
+    }
+    #email-me > .modal-input-field textarea {
+        font-size: 16px;
+        height: 100px;
+        padding-right: 3px;
+        padding-top: 15px;
+    }
+    #email-me > .modal-input-field label[for="email"] {
+        margin-left: 7px;
+    }
+    #email-me > .modal-input-field label[for="message"] {
+        margin-left: 7px;
+    }
+}
+@media screen and (max-width: 750px) {
+    #info-section {
+        padding-top: 50px;
+        padding-bottom: 50px;
+        height: auto;
         flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
     }
-    .border-bottom2 {
-        margin-top: 0px;
+    .one-section {
+        margin-bottom: 50px;
+        margin-left: 0px;
     }
-    .container {
-        flex: 0 0 0%;
-        /* height: 40rem; */
+    .me-text {
+        font-size: 13px;
     }
-    .content {
-        height: 33rem;
-        height: auto;
-        min-height: 100% !important;
-        /* display: block;
-        overflow: auto; */
+    #email-me {
+        width: 300px;
+        height: 400px;
+        font-size: 20px;
+        padding: 1px 20px;
     }
-}
-@media screen and (max-width: 550px) {
-    .scroll-container {
-        height: 128rem;
+    #email-me  > .message-icon {
+        margin-top: 20px;
     }
-    .content {
-        width: 24rem;
-        /* height: 34.5rem; */
-        /* display: block;
-        overflow: auto; */
-        height: auto;
-        min-height: 100% !important;
+    #email-me  > .message-icon > i{
+        font-size: 20px;
     }
-    .carousel-button {
-        font-size: 1.7rem;
-        padding: 0 -0.5rem;
+    #email-me  > .message-icon > span{
+        font-size: 20px;
     }
-    .scroll-container .container:nth-child(1) .prev {
-        left: 0px;
+    #email-me > .modal-input-field:nth-child(1) {
+        margin-bottom: 20px;
+        padding-left: 10px;
     }
-    .scroll-container .container:nth-child(1) .next {
-        right: 0px;
+    #email-me > .modal-input-field > label{
+        font-size: 15px;
     }
-    .scroll-container .container:nth-child(2) .prev {
-        left: -2px;
+    .slide-out {
+        transform: translateY(30%);
     }
-    .scroll-container .container:nth-child(2) .next {
-        right: -2px;
+    .slide-out.animate {
+        transform: translateY(0%);
     }
-    .scroll-container .container:nth-child(3) .prev {
-        left: 20px;
+    .slide-in {
+        transform: translateY(20%);
     }
-    .scroll-container .container:nth-child(3) .next {
-        right: 20px;
-    }
-    .next {
-        position: absolute;
-        right: -10;
-    }
-    .scroll-container .container:nth-child(1) .slide > img {
-        margin-right: 62px;
-    }
-    .scroll-container .container:nth-child(2) .slide > img {
-        margin-right: 13px;
+      
+    .slide-in.animate {
+        transform: translateY(0%);
     }
 }
-@media screen and (max-width: 420px) {
-    .content {
-        width: 22rem;
-        height: auto;
-        min-height: 100% !important;
-        /* height: 36rem; */
-        /* display: block;
-        overflow: auto; */
+@media screen and (max-width: 750px) {
+    .my-img {
+        width: 200px;
+        margin-left: 40px;
     }
-    .scroll-container .container:nth-child(1) .slide > img {
-        margin-right: 93px;
-        margin-top: 10px;
-        height: 17.5rem;
-        width: 16rem;
+}
+@media screen and (max-width: 450px) {
+    .my-img {
+        width: 150px;
+        margin-left: 70px;
     }
-    .scroll-container .container:nth-child(1) .prev {
-        left: -9px;
+    .me-text {
+        width: 275px;
+        font-size: 12px;
+        margin-left: 10px;
     }
-    .scroll-container .container:nth-child(1) .next {
-        right: -9px;
+    .slide-out {
+        transform: translateY(60%);
     }
-    .scroll-container .container:nth-child(1) .input-slides {
-        bottom: -5px;
+    .slide-out.animate {
+        transform: translateY(0%);
     }
-    /* .scroll-container .container:nth-child(2) .content {
-        height: 34rem;
-    } */
-    .scroll-container .container:nth-child(2) .slide > img {
-        margin-right: 45px;
+}
+@media screen and (max-width: 400px) {
+    .second-section {
+        width: 250px;
+    }
+    .me-text {
+        width: 250px;
+        margin-left: 25px;
+        font-size: 11px;
+    }
+    #email-me {
+        width: 100%;
+        height: 395px;
+    }
+    #email-me  > .message-icon > i {
+        font-size: 35px;
+    }
+    #email-me > .modal-input-field {
+        margin-top: 35px;
+        padding-left: 7px;
+    }
+    #email-me > .modal-input-field:nth-child(2) > i {
         margin-top: 7px;
-        height: 18.5rem;
     }
-    .scroll-container .container:nth-child(2) .input-slides {
-        bottom: 7px;
+    #email-me > .modal-input-field:nth-child(3) > i {
+        margin-top: 7px;
     }
-    .scroll-container .container:nth-child(3) .carousel{
-        height: 21rem;
+    #email-me > .modal-input-field textarea {
+        font-size: 16px;
+        height: 100px;
+        padding-right: 5px;
+        padding-top: 10px;
     }
-    /* .scroll-container .container:nth-child(3) .content {
-        height: 36.5rem;
-    } */
-    .scroll-container .container:nth-child(3) .slide > img {
-        margin-top: 10px;
-        margin-left: 5px;
-        height: 19rem;
+    #email-me > .modal-input-field input {
+        font-size: 16px;
+        padding-left: 10px;
     }
-    .scroll-container .container:nth-child(3) .input-slides {
-        bottom: -10px;
+    #email-me > .modal-input-field label[for="email"] {
+        margin-left: 10px;
     }
-    /* .scroll-container .content:nth-child(3) {
-        width: 22rem;
-        height: 35rem;
-    } */
+    #email-me > .modal-input-field label[for="message"] {
+        margin-left: 10px;
+    }
 }
+/* END OF INFO */
     /* FOOTER */
  
  .footer {
@@ -969,6 +1249,7 @@
  .footer .social a {
     width: 37px;
     height: 37px;
+    margin-top: 10px;
  }
  .footer .social .fab {
     font-size: 29px;

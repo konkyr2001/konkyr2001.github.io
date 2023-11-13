@@ -1,8 +1,10 @@
 var btn = document.getElementById("contact-btn");
 
 var modal = document.getElementById("email-modal");
-var email = document.getElementById("email");
-var message = document.getElementById("message");
+var email = document.getElementById("email1");
+var message = document.getElementById("message1");
+var email2 = document.getElementById("email2");
+var message2 = document.getElementById("message2");
 
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("close-modal")[0];
@@ -58,9 +60,16 @@ function sendErrorAlert(message) {
         title: message
       });     
 }
-function checkInputFieldsValues() {
-  var emailValue = email.value.trim();
-  var messageValue = message.value.trim();
+function checkInputFieldsValues(form) {
+  var emailValue;
+  var messageValue;
+  if (form == "1") {// form1 = modal form
+    emailValue = email.value.trim();
+    messageValue = message.value.trim();
+  } else {
+    emailValue = email2.value.trim();
+    messageValue = message2.value.trim();
+  }
   
   if (emailValue === '' && messageValue === '') {
     sendErrorAlert("Please fill out the fields before submitting your message!");
@@ -81,19 +90,19 @@ function checkInputFieldsValues() {
   return true;
 }
 function sendSuccessAlert(message) {
-    var introduction = document.getElementById("introduction-section");
-    var aboutme = document.getElementById("aboutme-section");
-    var projects = document.getElementById("project-section");
-    const borders = document.querySelectorAll('.border-bottom');
-    var socials = document.getElementById("socials-section");
+    // var introduction = document.getElementById("introduction-section");
+    // var projects = document.getElementById("project-section");
+    // const borders = document.querySelectorAll('.border-bottom');
+    // var info = document.getElementById("info-section");
+    // var socials = document.getElementById("socials-section");
     
-    introduction.style.visibility = "hidden";
-    aboutme.style.visibility = "hidden";
-    projects.style.visibility = "hidden";
-    borders.forEach(border => {
-      border.style.visibility = 'hidden';
-    });
-    socials.style.visibility = "hidden";
+    // introduction.style.visibility = "hidden";
+    // projects.style.visibility = "hidden";
+    // borders.forEach(border => {
+    //   border.style.visibility = 'hidden';
+    // });
+    // info.style.visibility = "hidden";
+    // socials.style.visibility = "hidden";
 
     Swal.fire({
         // position: 'top',
@@ -120,14 +129,15 @@ function sendSuccessAlert(message) {
 window.addEventListener("DOMContentLoaded", function () {
   // get the form elements defined in your form HTML above
 
-  var form = document.getElementById("emailform");
+  var form1 = document.getElementById("emailform");
+  var form2 = document.getElementById("email-me");
   // var button = document.getElementById("my-form-button");
   // var status = document.getElementById("status");
-
   // Success and Error functions for after the form is submitted
 
   function success() {
-    form.reset();
+    // form1.reset();
+    // form2.reset();
     // status.classList.add("success");
     // status.innerHTML = "Thanks!";
     sendSuccessAlert('Email has been sent!')
@@ -140,17 +150,22 @@ window.addEventListener("DOMContentLoaded", function () {
 
   // handle the form submission event
 
-  form.addEventListener("submit", function (ev) {
+  form1.addEventListener("submit", function (ev) {
     ev.preventDefault();
-    var data = new FormData(form);
-    ajax(form.method, form.action, data, success, error);
+    var data = new FormData(form1);
+    ajax(1,form1.method, form1.action, data, success, error);
+  });
+  form2.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var data = new FormData(form2);
+    ajax(2,form2.method, form2.action, data, success, error);
   });
 });
 
 // helper function for sending an AJAX request
 
-function ajax(method, url, data, success, error) {
-  if (!checkInputFieldsValues())
+function ajax(form, method, url, data, success, error) {
+  if (!checkInputFieldsValues(form))
     return;
   var xhr = new XMLHttpRequest();
   xhr.open(method, url);
